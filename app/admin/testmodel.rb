@@ -1,4 +1,5 @@
 ActiveAdmin.register Testmodel do
+  permit_params :productid, :devicetype_id, :manufa, :functions
 
 
   # See permitted parameters documentation:
