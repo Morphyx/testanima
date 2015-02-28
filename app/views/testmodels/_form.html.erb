@@ -1,0 +1,14 @@
+<%= simple_form_for(@testmodel) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.input :productid %>
+    <%= f.input :devicetype_id %>
+    <%= f.input :manufa %>
+    <%= f.input :functions %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

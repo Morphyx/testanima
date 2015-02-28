@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Productid:</strong>
+  <%= @testmodel.productid %>
+</p>
+
+<p>
+  <strong>Devicetype:</strong>
+  <%= @testmodel.devicetype_id %>
+</p>
+
+<p>
+  <strong>Manufa:</strong>
+  <%= @testmodel.manufa %>
+</p>
+
+<p>
+  <strong>Functions:</strong>
+  <%= @testmodel.functions %>
+</p>
+
+<%= link_to 'Edit', edit_testmodel_path(@testmodel) %> |
+<%= link_to 'Back', testmodels_path %>
