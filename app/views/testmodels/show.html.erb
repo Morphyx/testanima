@@ -1,24 +1,30 @@
-<p id="notice"><%= notice %></p>
+<%- model_class = Testmodel -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => Testmodel %></h1>
+</div>
 
-<p>
-  <strong>Productid:</strong>
-  <%= @testmodel.productid %>
-</p>
+<div class="fieldset">
+  <dl>
+      <dt class="label label-default"><%= model_class.human_attribute_name(:productid) %></dt>
+      <dd><pre class="prettyprint"><%= @testmodel.productid %></pre></dd>
+      <dt class="label label-default"><%= model_class.human_attribute_name(:devicetype_id) %></dt>
+      <dd><pre class="prettyprint"><%= @testmodel.devicetype_id %></pre></dd>
+      <dt class="label label-default"><%= model_class.human_attribute_name(:manufa) %></dt>
+      <dd><pre class="prettyprint"><%= @testmodel.manufa %></pre></dd>
+      <dt class="label label-default"><%= model_class.human_attribute_name(:functions) %></dt>
+      <dd><pre class="prettyprint"><%= @testmodel.functions %></pre></dd>
+  </dl>
+</div>
 
-<p>
-  <strong>Devicetype:</strong>
-  <%= @testmodel.devicetype_id %>
-</p>
+<div class="form-group">
+  <%= link_to t('.back', :default => t("helpers.links.back")),
+              testmodels_path, :class => 'btn btn-default'  %>
+  <%= link_to t('.edit', :default => t("helpers.links.edit")),
+              edit_testmodel_path(@testmodel), :class => 'btn btn-default' %>
+  <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+              testmodel_path(@testmodel),
+              :method => 'delete',
+              :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+              :class => 'btn btn-danger' %>
+</div>
 
-<p>
-  <strong>Manufa:</strong>
-  <%= @testmodel.manufa %>
-</p>
-
-<p>
-  <strong>Functions:</strong>
-  <%= @testmodel.functions %>
-</p>
-
-<%= link_to 'Edit', edit_testmodel_path(@testmodel) %> |
-<%= link_to 'Back', testmodels_path %>

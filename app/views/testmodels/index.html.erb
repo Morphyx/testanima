@@ -1,31 +1,42 @@
-<h1>Listing testmodels</h1>
-
-<table>
+<%- model_class = Testmodel -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => Testmodel %></h1>
+</div>
+<table class="table table-striped">
   <thead>
     <tr>
-      <th>Productid</th>
-      <th>Devicetype</th>
-      <th>Manufa</th>
-      <th>Functions</th>
-      <th colspan="3"></th>
+      <th>ID</th>
+      <th><%= model_class.human_attribute_name(:productid) %></th>
+      <th><%= model_class.human_attribute_name(:devicetype_id) %></th>
+      <th><%= model_class.human_attribute_name(:manufa) %></th>
+      <th><%= model_class.human_attribute_name(:functions) %></th>
+      <th><%= model_class.human_attribute_name(:created_at) %></th>
+      <th><%=t '.actions', :default => t("helpers.actions") %></th>
     </tr>
   </thead>
-
   <tbody>
     <% @testmodels.each do |testmodel| %>
       <tr>
+        <td><%= testmodel.id %></td>
         <td><%= testmodel.productid %></td>
         <td><%= testmodel.devicetype_id %></td>
         <td><%= testmodel.manufa %></td>
         <td><%= testmodel.functions %></td>
-        <td><%= link_to 'Show', testmodel %></td>
-        <td><%= link_to 'Edit', edit_testmodel_path(testmodel) %></td>
-        <td><%= link_to 'Destroy', testmodel, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%=l testmodel.created_at, format: :long %></td>
+        <td>
+          <%= link_to testmodel_path(testmodel), :class => 'btn btn-xs', :title => "#{ t('.show', :default => t('helpers.links.show')) }" do %>
+            <%= glyph 'info-sign' %>
+            <%= glyph 'pencil' %>
+          <%- end -%>
+          <%= link_to testmodel_path(testmodel), :method => :delete, :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) }, :class => 'btn btn-xs', :title => "#{ t('.destroy', :default => t('helpers.links.destroy')) }" do %>
+            <%= glyph 'remove' %>
+          <%- end -%>
+        </td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
-<br>
-
-<%= link_to 'New Testmodel', new_testmodel_path %>
+<%= link_to t('.new', :default => t("helpers.links.new")),
+            new_testmodel_path,
+            :class => 'btn btn-primary' %>
