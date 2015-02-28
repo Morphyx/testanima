@@ -1,6 +1,5 @@
-<h1>Editing devicetype</h1>
-
-<%= render 'form' %>
-
-<%= link_to 'Show', @devicetype %> |
-<%= link_to 'Back', devicetypes_path %>
+<%- model_class = Devicetype -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => [:'helpers.titles.edit', 'Edit %{model}'], :model => Devicetype %></h1>
+</div>
+<%= render :partial => 'form' %>
